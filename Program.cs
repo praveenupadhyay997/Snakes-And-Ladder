@@ -32,6 +32,8 @@ namespace SnakeAndLadderProblem
 
                     Console.WriteLine("Current Position Of Player-1 is {0}", playerPosition);
                     Console.WriteLine("Current Moves Number={0}", moves);
+                    int diceInput = dice.Next(1, 7);
+                    Console.WriteLine("Your Dice Score={0}", diceInput);
 
                     break;
 
