@@ -22,6 +22,7 @@ namespace SnakeAndLadderProblem
             Console.WriteLine("1. Single Player Mode");
             Console.WriteLine("2. Dual Player Mode");
 
+            //Choice for Single Player Mode Or Multiple Player Mode
             int choice = Convert.ToInt32(Console.ReadLine());
 
             switch (choice)
@@ -33,12 +34,15 @@ namespace SnakeAndLadderProblem
                     Console.WriteLine("Current Position Of Player-1 is {0}", positionPlayer);
                     Console.WriteLine("Current Moves Number={0}", moves);
 
+                    //Game End Condition
                     while (positionPlayer < 100)
                     {
 
+                        // Rolling the dice
                         int diceInput = dice.Next(1, 7);
                         moves++;
                         Console.WriteLine("Your Dice Score={0}", diceInput);
+                        // Ensuring the exact winning Condition
                         if (positionPlayer + diceInput > 100)
                         {
                             continue;
@@ -48,8 +52,8 @@ namespace SnakeAndLadderProblem
                             positionPlayer += diceInput;
                         }
 
-                        int opPlay = option.Next(0, 3);
-                        switch (opPlay)
+                        int optionPlay = option.Next(0, 3);
+                        switch (optionPlay)
                         {
                             case 0:
                                 Console.WriteLine("Your Option is No Play.");
@@ -71,10 +75,12 @@ namespace SnakeAndLadderProblem
                                 positionPlayer -= diceInput;
                                 break;
                         }
+                        // Ensuring non-negative posiitons which are not possible in real-world
                         if (positionPlayer < 0)
                         {
                             positionPlayer = START;
                         }
+                        //Reporting the Position after every move and number of moves
                         Console.WriteLine("Your Position={0}", positionPlayer);
                         Console.WriteLine("Your Moves={0}", moves);
                     }
