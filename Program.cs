@@ -37,9 +37,17 @@ namespace SnakeAndLadderProblem
                     {
 
                         int diceInput = dice.Next(1, 7);
-                        Console.WriteLine("Your Dice Score={0}", diceInput);
-                        positionPlayer += diceInput;
                         moves++;
+                        Console.WriteLine("Your Dice Score={0}", diceInput);
+                        if (positionPlayer + diceInput > 100)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            positionPlayer += diceInput;
+                        }
+
                         int opPlay = option.Next(0, 3);
                         switch (opPlay)
                         {
@@ -48,7 +56,15 @@ namespace SnakeAndLadderProblem
                                 break;
                             case 1:
                                 Console.WriteLine("Your Option is Ladder.");
-                                positionPlayer += diceInput;
+                                if (positionPlayer + diceInput > 100)
+                                {
+                                    continue;
+                                }
+                                else
+                                {
+                                    positionPlayer += diceInput;
+                                }
+
                                 break;
                             case 2:
                                 Console.WriteLine("Your Option is Snakes.");
